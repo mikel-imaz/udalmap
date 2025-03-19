@@ -50,7 +50,7 @@ class UdalMap:
             summarized (str, optional): "false" (default), "true"
         
         Returns:
-            A dict representation of the JSON returned from the API.
+            A list of dict representation of the JSON returned from the API.
         """
         path = f"groups"
         return self._request(path, kwargs)
@@ -79,7 +79,7 @@ class UdalMap:
             summarized (str, optional): "false" (default), "true"
         
         Returns:
-            A dict representation of the JSON returned from the API.
+            A list of dict representation of the JSON returned from the API.
         """
         path = f"subgroups"
         return self._request(path, kwargs)
@@ -122,7 +122,7 @@ class UdalMap:
             lang (str, optional): "SPANISH" (default), "BASQUE"
         
         Returns:
-            A dict representation of the JSON returned from the API.
+            A list of dict representation of the JSON returned from the API.
         """
         path = f"indicators"
         return self._request(path, kwargs)
@@ -137,13 +137,13 @@ class UdalMap:
             summarized (str, optional): "false" (default), "true"
         
         Returns:
-            A dict representation of the JSON returned from the API.
+            A list representation of the JSON returned from the API.
         """
         path = f"subgroups/{subgroupId}/indicators"
         return self._request(path, kwargs)
 
-    def municipality_indicators(self, municipalityId, **kwargs):
-        """Find indicators by municipality.
+    def municipality_indicators_data(self, municipalityId, **kwargs):
+        """Find indicators' data for a municipality.
         /indicators/municipalities/{municipalityId}
 
         Args:
@@ -171,7 +171,7 @@ class UdalMap:
         return self._request(path, kwargs)
 
     def indicator_entities_data(self, indicatorId, **kwargs):
-        """Get all entities data of an indicator.
+        """Get indicators' data for all entities.
         /indicators/{indicatorId}/entities
 
         Args:
@@ -185,7 +185,7 @@ class UdalMap:
         return self._request(path, kwargs)
 
     def indicator_entity_data(self, indicatorId, entityId, **kwargs):
-        """Get entity data of an indicator.
+        """Get indicator data of an entity.
         /indicators/{indicatorId}/entities/{entityId}
 
         Args:
@@ -200,7 +200,7 @@ class UdalMap:
         return self._request(path, kwargs)
 
     def indicator_regions_data(self, indicatorId, **kwargs):
-        """Get all regions data of an indicator.
+        """Get indicators' data for all regions.
         /indicators/{indicatorId}/regions
 
         Args:
@@ -214,7 +214,7 @@ class UdalMap:
         return self._request(path, kwargs)
 
     def indicator_region_data(self, indicatorId, regionId, **kwargs):
-        """Get regions data of an indicator.
+        """Get indicator data of a region.
         /indicators/{indicatorId}/regions/{regionId}
 
         Args:
@@ -229,7 +229,7 @@ class UdalMap:
         return self._request(path, kwargs)
 
     def indicator_municipalities_data(self, indicatorId, **kwargs):
-        """Get all municipalities of an indicator.
+        """Get indicators' data for all municipalities.
         /indicators/{indicatorId}/municipalities
 
         Args:
@@ -243,7 +243,7 @@ class UdalMap:
         return self._request(path, kwargs)
 
     def indicator_municipality_data(self, indicatorId, municipalityId, **kwargs):
-        """Get indicators data of a municipality.
+        """Get indicator data of a municipality.
         /udalmap/indicators/{indicatorId}/municipalities/{municipalityId}
 
         Args:
