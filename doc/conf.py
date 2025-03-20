@@ -11,6 +11,7 @@ copyright = '2025'
 extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.coverage',
               'sphinx.ext.napoleon',
+              'sphinx.ext.githubpages',
              ]
 
 templates_path = ['_templates']
