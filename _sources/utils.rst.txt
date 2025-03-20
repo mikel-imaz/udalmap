@@ -1,2 +1,0 @@
-.. automodule:: udalmap.utils
-    :members:
