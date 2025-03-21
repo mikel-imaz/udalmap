@@ -32,19 +32,18 @@
 
           <div class="body" role="main">
             
-  <p id="module-udalmap.base">udalmap.base</p>
-<p>This module implements the base class of udalmap.</p>
+  <p id="module-udalmap.base">A module for implementing a base class for Udalmap.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="udalmap.base.UdalMap">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">udalmap.base.</span></span><span class="sig-name descname"><span class="pre">UdalMap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#udalmap.base.UdalMap" title="Link to this definition">¶</a></dt>
-<dd><p>Implements all available GET queries in Udalmap API.</p>
+<dd><p>Implement all available GET queries in Udalmap API.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="udalmap.base.UdalMap.timeout">
 <span class="sig-name descname"><span class="pre">timeout</span></span><a class="headerlink" href="#udalmap.base.UdalMap.timeout" title="Link to this definition">¶</a></dt>
-<dd><p>for requests, in seconds</p>
+<dd><p>Timeout for requests, in seconds</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
+<dd class="field-odd"><p>float, optional</p>
 </dd>
 </dl>
 </dd></dl>
@@ -52,18 +51,20 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="udalmap.base.UdalMap.group">
 <span class="sig-name descname"><span class="pre">group</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">groupId</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#udalmap.base.UdalMap.group" title="Link to this definition">¶</a></dt>
-<dd><p>Get a group.
-/groups/{groupId}</p>
+<dd><p>Get a group.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>groupId</strong> (<em>str</em><em>, </em><em>required</em>) – The id of group</p></li>
-<li><p><strong>lang</strong> (<em>str</em><em>, </em><em>optional</em>) – “SPANISH” (default), “BASQUE”</p></li>
-<li><p><strong>summarized</strong> (<em>str</em><em>, </em><em>optional</em>) – “false” (default), “true”</p></li>
+<li><p><strong>groupId</strong> (<em>str</em>) – The id number of the group</p></li>
+<li><p><strong>**kwargs</strong> – lang: {“SPANISH”, “BASQUE”}
+summarized: {“false”, “true”}</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A dict representation of the JSON returned from the API.</p>
+<dd class="field-even"><p>Representation of the JSON returned from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
 </dd></dl>
@@ -71,18 +72,20 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="udalmap.base.UdalMap.group_subgroups">
 <span class="sig-name descname"><span class="pre">group_subgroups</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">groupId</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#udalmap.base.UdalMap.group_subgroups" title="Link to this definition">¶</a></dt>
-<dd><p>Find all subgroups of a group.
-/groups/{groupId}/subgroups</p>
+<dd><p>Find all subgroups of a group.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>groupId</strong> (<em>str</em><em>, </em><em>required</em>) – The id of group</p></li>
-<li><p><strong>lang</strong> (<em>str</em><em>, </em><em>optional</em>) – “SPANISH” (default), “BASQUE”</p></li>
-<li><p><strong>summarized</strong> (<em>str</em><em>, </em><em>optional</em>) – “false” (default), “true”</p></li>
+<li><p><strong>groupId</strong> (<em>str</em>) – The id number of the group</p></li>
+<li><p><strong>**kwargs</strong> – lang: {“SPANISH”, “BASQUE”}
+summarized: {“false”, “true”}</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A dict representation of the JSON returned from the API.</p>
+<dd class="field-even"><p>Representation of the JSON returned from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
 </dd></dl>
@@ -90,17 +93,17 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="udalmap.base.UdalMap.groups">
 <span class="sig-name descname"><span class="pre">groups</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#udalmap.base.UdalMap.groups" title="Link to this definition">¶</a></dt>
-<dd><p>Find all groups.
-/groups</p>
+<dd><p>Find all groups.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>lang</strong> (<em>str</em><em>, </em><em>optional</em>) – “SPANISH” (default), “BASQUE”</p></li>
-<li><p><strong>summarized</strong> (<em>str</em><em>, </em><em>optional</em>) – “false” (default), “true”</p></li>
-</ul>
+<dd class="field-odd"><p><strong>**kwargs</strong> – lang: {“SPANISH”, “BASQUE”}
+summarized: {“false”, “true”}</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A list of dict representation of the JSON returned from the API.</p>
+<dd class="field-even"><p>Representation of the JSON returned from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of dict</p>
 </dd>
 </dl>
 </dd></dl>
@@ -108,17 +111,19 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="udalmap.base.UdalMap.indicator_data">
 <span class="sig-name descname"><span class="pre">indicator_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indicatorId</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#udalmap.base.UdalMap.indicator_data" title="Link to this definition">¶</a></dt>
-<dd><p>Get an indicator data.
-/indicators/{indicatorId}</p>
+<dd><p>Get an indicator data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>indicatorId</strong> (<em>str</em><em>, </em><em>required</em>) – The id of indicator</p></li>
-<li><p><strong>lang</strong> (<em>str</em><em>, </em><em>optional</em>) – “SPANISH” (default), “BASQUE”</p></li>
+<li><p><strong>indicatorId</strong> (<em>str</em>) – The id number of the indicator</p></li>
+<li><p><strong>**kwargs</strong> – lang: {“SPANISH”, “BASQUE”}</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A dict representation of the JSON returned from the API.</p>
+<dd class="field-even"><p>Representation of the JSON returned from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
 </dd></dl>
@@ -126,17 +131,19 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="udalmap.base.UdalMap.indicator_entities_data">
 <span class="sig-name descname"><span class="pre">indicator_entities_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indicatorId</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#udalmap.base.UdalMap.indicator_entities_data" title="Link to this definition">¶</a></dt>
-<dd><p>Get indicators’ data for all entities.
-/indicators/{indicatorId}/entities</p>
+<dd><p>Get indicators’ data for all entities.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>indicatorId</strong> (<em>str</em><em>, </em><em>required</em>) – The id of indicator</p></li>
-<li><p><strong>lang</strong> (<em>str</em><em>, </em><em>optional</em>) – “SPANISH” (default), “BASQUE”</p></li>
+<li><p><strong>indicatorId</strong> (<em>str</em>) – The id number of the indicator</p></li>
+<li><p><strong>**kwargs</strong> – lang: {“SPANISH”, “BASQUE”}</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A dict representation of the JSON returned from the API.</p>
+<dd class="field-even"><p>Representation of the JSON returned from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
 </dd></dl>
@@ -144,18 +151,20 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="udalmap.base.UdalMap.indicator_entity_data">
 <span class="sig-name descname"><span class="pre">indicator_entity_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indicatorId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entityId</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#udalmap.base.UdalMap.indicator_entity_data" title="Link to this definition">¶</a></dt>
-<dd><p>Get indicator data of an entity.
-/indicators/{indicatorId}/entities/{entityId}</p>
+<dd><p>Get indicator data of an entity.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>indicatorId</strong> (<em>str</em><em>, </em><em>required</em>) – The id of indicator</p></li>
-<li><p><strong>entityId</strong> (<em>str</em><em>, </em><em>required</em>) – The id of entity</p></li>
-<li><p><strong>lang</strong> (<em>str</em><em>, </em><em>optional</em>) – “SPANISH” (default), “BASQUE”</p></li>
+<li><p><strong>indicatorId</strong> (<em>str</em>) – The id number of the indicator</p></li>
+<li><p><strong>entityId</strong> (<em>str</em>) – The id number of the entity</p></li>
+<li><p><strong>**kwargs</strong> – lang: {“SPANISH”, “BASQUE”}</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A dict representation of the JSON returned from the API.</p>
+<dd class="field-even"><p>Representation of the JSON returned from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
 </dd></dl>
@@ -163,17 +172,19 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="udalmap.base.UdalMap.indicator_municipalities_data">
 <span class="sig-name descname"><span class="pre">indicator_municipalities_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indicatorId</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#udalmap.base.UdalMap.indicator_municipalities_data" title="Link to this definition">¶</a></dt>
-<dd><p>Get indicators’ data for all municipalities.
-/indicators/{indicatorId}/municipalities</p>
+<dd><p>Get indicators’ data for all municipalities.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>indicatorId</strong> (<em>str</em><em>, </em><em>required</em>) – The id of indicator</p></li>
-<li><p><strong>lang</strong> (<em>str</em><em>, </em><em>optional</em>) – “SPANISH” (default), “BASQUE”</p></li>
+<li><p><strong>indicatorId</strong> (<em>str</em>) – The id number of the indicator</p></li>
+<li><p><strong>**kwargs</strong> – lang: {“SPANISH”, “BASQUE”}</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A dict representation of the JSON returned from the API.</p>
+<dd class="field-even"><p>Representation of the JSON returned from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
 </dd></dl>
@@ -181,18 +192,20 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="udalmap.base.UdalMap.indicator_municipality_data">
 <span class="sig-name descname"><span class="pre">indicator_municipality_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indicatorId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">municipalityId</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#udalmap.base.UdalMap.indicator_municipality_data" title="Link to this definition">¶</a></dt>
-<dd><p>Get indicator data of a municipality.
-/udalmap/indicators/{indicatorId}/municipalities/{municipalityId}</p>
+<dd><p>Get indicator data of a municipality.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>indicatorId</strong> (<em>str</em><em>, </em><em>required</em>) – The id of indicator</p></li>
-<li><p><strong>municipalityId</strong> (<em>str</em><em>, </em><em>required</em>) – The id of municipality</p></li>
-<li><p><strong>lang</strong> (<em>str</em><em>, </em><em>optional</em>) – “SPANISH” (default), “BASQUE”</p></li>
+<li><p><strong>indicatorId</strong> (<em>str</em>) – The id number of the indicator</p></li>
+<li><p><strong>municipalityId</strong> (<em>str</em>) – The id number of the municipality</p></li>
+<li><p><strong>**kwargs</strong> – lang: {“SPANISH”, “BASQUE”}</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A dict representation of the JSON returned from the API.</p>
+<dd class="field-even"><p>Representation of the JSON returned from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
 </dd></dl>
@@ -200,18 +213,20 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="udalmap.base.UdalMap.indicator_region_data">
 <span class="sig-name descname"><span class="pre">indicator_region_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indicatorId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regionId</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#udalmap.base.UdalMap.indicator_region_data" title="Link to this definition">¶</a></dt>
-<dd><p>Get indicator data of a region.
-/indicators/{indicatorId}/regions/{regionId}</p>
+<dd><p>Get indicator data of a region.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>indicatorId</strong> (<em>str</em><em>, </em><em>required</em>) – The id of indicator</p></li>
-<li><p><strong>regionId</strong> (<em>str</em><em>, </em><em>required</em>) – The id of region</p></li>
-<li><p><strong>lang</strong> (<em>str</em><em>, </em><em>optional</em>) – “SPANISH” (default), “BASQUE”</p></li>
+<li><p><strong>indicatorId</strong> (<em>str</em>) – The id number of the indicator</p></li>
+<li><p><strong>regionId</strong> (<em>str</em>) – The id number of the region</p></li>
+<li><p><strong>**kwargs</strong> – lang: {“SPANISH”, “BASQUE”}</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A dict representation of the JSON returned from the API.</p>
+<dd class="field-even"><p>Representation of the JSON returned from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
 </dd></dl>
@@ -219,17 +234,19 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="udalmap.base.UdalMap.indicator_regions_data">
 <span class="sig-name descname"><span class="pre">indicator_regions_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indicatorId</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#udalmap.base.UdalMap.indicator_regions_data" title="Link to this definition">¶</a></dt>
-<dd><p>Get indicators’ data for all regions.
-/indicators/{indicatorId}/regions</p>
+<dd><p>Get indicators’ data for all regions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>indicatorId</strong> (<em>str</em><em>, </em><em>required</em>) – The id of indicator</p></li>
-<li><p><strong>lang</strong> (<em>str</em><em>, </em><em>optional</em>) – “SPANISH” (default), “BASQUE”</p></li>
+<li><p><strong>indicatorId</strong> (<em>str</em>) – The id number of the indicator</p></li>
+<li><p><strong>**kwargs</strong> – lang: {“SPANISH”, “BASQUE”}</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A dict representation of the JSON returned from the API.</p>
+<dd class="field-even"><p>Representation of the JSON returned from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
 </dd></dl>
@@ -237,14 +254,16 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="udalmap.base.UdalMap.indicators">
 <span class="sig-name descname"><span class="pre">indicators</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#udalmap.base.UdalMap.indicators" title="Link to this definition">¶</a></dt>
-<dd><p>Find all indicators.
-/indicators</p>
+<dd><p>Find all indicators.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>lang</strong> (<em>str</em><em>, </em><em>optional</em>) – “SPANISH” (default), “BASQUE”</p>
+<dd class="field-odd"><p><strong>**kwargs</strong> – lang: {“SPANISH”, “BASQUE”}</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A list of dict representation of the JSON returned from the API.</p>
+<dd class="field-even"><p>Representation of the JSON returned from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of dict</p>
 </dd>
 </dl>
 </dd></dl>
@@ -252,17 +271,19 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="udalmap.base.UdalMap.municipality_indicators_data">
 <span class="sig-name descname"><span class="pre">municipality_indicators_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">municipalityId</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#udalmap.base.UdalMap.municipality_indicators_data" title="Link to this definition">¶</a></dt>
-<dd><p>Find indicators’ data for a municipality.
-/indicators/municipalities/{municipalityId}</p>
+<dd><p>Find indicators’ data for a municipality.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>municipalityId</strong> (<em>str</em><em>, </em><em>required</em>) – The id of municipality</p></li>
-<li><p><strong>lang</strong> (<em>str</em><em>, </em><em>optional</em>) – “SPANISH” (default), “BASQUE”</p></li>
+<li><p><strong>municipalityId</strong> (<em>str</em>) – The id number of the municipality</p></li>
+<li><p><strong>**kwargs</strong> – lang: {“SPANISH”, “BASQUE”}</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A dict representation of the JSON returned from the API.</p>
+<dd class="field-even"><p>Representation of the JSON returned from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
 </dd></dl>
@@ -270,18 +291,20 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="udalmap.base.UdalMap.subgroup">
 <span class="sig-name descname"><span class="pre">subgroup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subgroupId</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#udalmap.base.UdalMap.subgroup" title="Link to this definition">¶</a></dt>
-<dd><p>Get a subgroup.
-/subgroups/{subgroupId}</p>
+<dd><p>Get a subgroup.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>subgroupId</strong> (<em>str</em><em>, </em><em>required</em>) – The id of subgroup</p></li>
-<li><p><strong>lang</strong> (<em>str</em><em>, </em><em>optional</em>) – “SPANISH” (default), “BASQUE”</p></li>
-<li><p><strong>summarized</strong> (<em>str</em><em>, </em><em>optional</em>) – “false” (default), “true”</p></li>
+<li><p><strong>subgroupId</strong> (<em>str</em>) – The id number of the subgroup</p></li>
+<li><p><strong>**kwargs</strong> – lang: {“SPANISH”, “BASQUE”}
+summarized: {“false”, “true”}</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A dict representation of the JSON returned from the API.</p>
+<dd class="field-even"><p>Representation of the JSON returned from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
 </dd></dl>
@@ -289,18 +312,20 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="udalmap.base.UdalMap.subgroup_indicators">
 <span class="sig-name descname"><span class="pre">subgroup_indicators</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subgroupId</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#udalmap.base.UdalMap.subgroup_indicators" title="Link to this definition">¶</a></dt>
-<dd><p>Find all indicators of a subgroup.
-/subgroups/{subgroupId}/indicators</p>
+<dd><p>Find all indicators of a subgroup.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>subgroupId</strong> (<em>str</em><em>, </em><em>required</em>) – The id of subgroup</p></li>
-<li><p><strong>lang</strong> (<em>str</em><em>, </em><em>optional</em>) – “SPANISH” (default), “BASQUE”</p></li>
-<li><p><strong>summarized</strong> (<em>str</em><em>, </em><em>optional</em>) – “false” (default), “true”</p></li>
+<li><p><strong>subgroupId</strong> (<em>str</em>) – The id number of the subgroup</p></li>
+<li><p><strong>**kwargs</strong> – lang: {“SPANISH”, “BASQUE”}
+summarized: {“false”, “true”}</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A list representation of the JSON returned from the API.</p>
+<dd class="field-even"><p>Representation of the JSON returned from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of dict</p>
 </dd>
 </dl>
 </dd></dl>
@@ -308,17 +333,17 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="udalmap.base.UdalMap.subgroups">
 <span class="sig-name descname"><span class="pre">subgroups</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#udalmap.base.UdalMap.subgroups" title="Link to this definition">¶</a></dt>
-<dd><p>Find subgroups of all groups.
-/subgroups</p>
+<dd><p>Find subgroups of all groups.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>lang</strong> (<em>str</em><em>, </em><em>optional</em>) – “SPANISH” (default), “BASQUE”</p></li>
-<li><p><strong>summarized</strong> (<em>str</em><em>, </em><em>optional</em>) – “false” (default), “true”</p></li>
-</ul>
+<dd class="field-odd"><p><strong>**kwargs</strong> – lang: {“SPANISH”, “BASQUE”}
+summarized: {“false”, “true”}</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A list of dict representation of the JSON returned from the API.</p>
+<dd class="field-even"><p>Representation of the JSON returned from the API.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of dict</p>
 </dd>
 </dl>
 </dd></dl>
