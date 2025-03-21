@@ -17,7 +17,18 @@ _udalmap_ will be available on the Python Package Index (PyPI) once it's ready.
 In the meantime, you can download the source code from this repo and install it yourself.
 
 ## Usage
-Once you have installed the package, you can proceed this way:
+Once you have installed the package, you can import it and instantiate the base class this way:
+```python
+>>> import udalmap
+>>> udm = udalmap.UdalMap()
+```
+The object implements one-to-one mapping to the API endpoints. For example, you could call the following method...
+```python
+>>> udm.groups()
+```
+...and you would get a list of dictionaries of the JSON response from the API. Please, refer to the [documentation](https://mikel-imaz.github.io/udalmap/) of this package or the information provided by the [API](https://opendata.euskadi.eus/api-udalmap/?api=udalmap) for a complete list of services.
+
+The package offers though a more convenient way to work leveraging Pandas. To do so, you can proceed this way:
 ```python
 >>> from udalmap.utils import UdmDf
 >>> udm = UdmDf()
