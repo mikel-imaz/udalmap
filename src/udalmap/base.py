@@ -1,18 +1,17 @@
 """
-udalmap.base
-
-This module implements the base class of udalmap.
+A module for implementing a base class for Udalmap.
 """
 
 import requests
 from requests.exceptions import ConnectionError, HTTPError
 
 class UdalMap:
-    """Implements all available GET queries in Udalmap API.
+    """Implement all available GET queries in Udalmap API.
 
-    Attributes:
-        timeout (float): for requests, in seconds
-        
+    Attributes
+    ----------
+    timeout : float, optional
+        Timeout for requests, in seconds  
     """
     BASE_URI = "https://api.euskadi.eus/udalmap"
     HEADERS = {"accept": "application/json"}
@@ -43,216 +42,276 @@ class UdalMap:
 
     def groups(self, **kwargs):
         """Find all groups.
-        /groups
 
-        Args:
-            lang (str, optional): "SPANISH" (default), "BASQUE"
-            summarized (str, optional): "false" (default), "true"
+        Parameters
+        ----------
+        **kwargs
+            lang: {"SPANISH", "BASQUE"}
+            summarized: {"false", "true"}
         
-        Returns:
-            A list of dict representation of the JSON returned from the API.
+        Returns
+        -------
+        list of dict
+            Representation of the JSON returned from the API.
         """
         path = f"groups"
         return self._request(path, kwargs)
 
     def group(self, groupId, **kwargs):
         """Get a group.
-        /groups/{groupId}
 
-        Args:
-            groupId (str, required): The id of group
-            lang (str, optional): "SPANISH" (default), "BASQUE"
-            summarized (str, optional): "false" (default), "true"
+        Parameters
+        ----------
+        groupId : str
+            The id number of the group
+        **kwargs
+            lang: {"SPANISH", "BASQUE"}
+            summarized: {"false", "true"}
         
-        Returns:
-            A dict representation of the JSON returned from the API.
+        Returns
+        -------
+        dict
+            Representation of the JSON returned from the API.
         """
         path = f"groups/{groupId}"
         return self._request(path, kwargs)
 
     def subgroups(self, **kwargs):
         """Find subgroups of all groups.
-        /subgroups
 
-        Args:
-            lang (str, optional): "SPANISH" (default), "BASQUE"
-            summarized (str, optional): "false" (default), "true"
+        Parameters
+        ----------
+        **kwargs
+            lang: {"SPANISH", "BASQUE"}
+            summarized: {"false", "true"}
         
-        Returns:
-            A list of dict representation of the JSON returned from the API.
+        Returns
+        -------
+        list of dict
+            Representation of the JSON returned from the API.
         """
         path = f"subgroups"
         return self._request(path, kwargs)
 
     def subgroup(self, subgroupId, **kwargs):
         """Get a subgroup.
-        /subgroups/{subgroupId}
 
-        Args:
-            subgroupId (str, required): The id of subgroup
-            lang (str, optional): "SPANISH" (default), "BASQUE"
-            summarized (str, optional): "false" (default), "true"
+        Parameters
+        ----------
+        subgroupId : str
+            The id number of the subgroup
+        **kwargs
+            lang: {"SPANISH", "BASQUE"}
+            summarized: {"false", "true"}
         
-        Returns:
-            A dict representation of the JSON returned from the API.
+        Returns
+        -------
+        dict
+            Representation of the JSON returned from the API.
         """
         path = f"subgroups/{subgroupId}"
         return self._request(path, kwargs)
 
     def group_subgroups(self, groupId, **kwargs):
         """Find all subgroups of a group.
-        /groups/{groupId}/subgroups
 
-        Args:
-            groupId (str, required): The id of group
-            lang (str, optional): "SPANISH" (default), "BASQUE"
-            summarized (str, optional): "false" (default), "true"
+        Parameters
+        ----------
+        groupId : str
+            The id number of the group
+        **kwargs
+            lang: {"SPANISH", "BASQUE"}
+            summarized: {"false", "true"}
         
-        Returns:
-            A dict representation of the JSON returned from the API.
+        Returns
+        -------
+        dict
+            Representation of the JSON returned from the API.
         """
         path = f"groups/{groupId}/subgroups"
         return self._request(path, kwargs)
 
     def indicators(self, **kwargs):
         """Find all indicators.
-        /indicators
 
-        Args:
-            lang (str, optional): "SPANISH" (default), "BASQUE"
+        Parameters
+        ----------
+        **kwargs
+            lang: {"SPANISH", "BASQUE"}
         
-        Returns:
-            A list of dict representation of the JSON returned from the API.
+        Returns
+        -------
+        list of dict
+            Representation of the JSON returned from the API.
         """
         path = f"indicators"
         return self._request(path, kwargs)
 
     def subgroup_indicators(self, subgroupId, **kwargs):
         """Find all indicators of a subgroup.
-        /subgroups/{subgroupId}/indicators
 
-        Args:
-            subgroupId (str, required): The id of subgroup
-            lang (str, optional): "SPANISH" (default), "BASQUE"
-            summarized (str, optional): "false" (default), "true"
+        Parameters
+        ----------
+        subgroupId : str
+            The id number of the subgroup
+        **kwargs
+            lang: {"SPANISH", "BASQUE"}
+            summarized: {"false", "true"}
         
-        Returns:
-            A list representation of the JSON returned from the API.
+        Returns
+        -------
+        list of dict
+            Representation of the JSON returned from the API.
         """
         path = f"subgroups/{subgroupId}/indicators"
         return self._request(path, kwargs)
 
     def municipality_indicators_data(self, municipalityId, **kwargs):
         """Find indicators' data for a municipality.
-        /indicators/municipalities/{municipalityId}
 
-        Args:
-            municipalityId (str, required): The id of municipality
-            lang (str, optional): "SPANISH" (default), "BASQUE"
+        Parameters
+        ----------
+        municipalityId : str
+            The id number of the municipality
+        **kwargs
+            lang: {"SPANISH", "BASQUE"}
         
-        Returns:
-            A dict representation of the JSON returned from the API.
+        Returns
+        -------
+        dict
+            Representation of the JSON returned from the API.
         """
         path = f"indicators/municipalities/{municipalityId}"
         return self._request(path, kwargs)
 
     def indicator_data(self, indicatorId, **kwargs):
         """Get an indicator data.
-        /indicators/{indicatorId}
 
-        Args:
-            indicatorId (str, required): The id of indicator
-            lang (str, optional): "SPANISH" (default), "BASQUE"
+        Parameters
+        ----------
+        indicatorId : str
+            The id number of the indicator
+        **kwargs
+            lang: {"SPANISH", "BASQUE"}
         
-        Returns:
-            A dict representation of the JSON returned from the API.
+        Returns
+        -------
+        dict
+            Representation of the JSON returned from the API.
         """
         path = f"indicators/{indicatorId}"
         return self._request(path, kwargs)
 
     def indicator_entities_data(self, indicatorId, **kwargs):
         """Get indicators' data for all entities.
-        /indicators/{indicatorId}/entities
 
-        Args:
-            indicatorId (str, required): The id of indicator
-            lang (str, optional): "SPANISH" (default), "BASQUE"
+        Parameters
+        ----------
+        indicatorId : str
+            The id number of the indicator
+        **kwargs
+            lang: {"SPANISH", "BASQUE"}
         
-        Returns:
-            A dict representation of the JSON returned from the API.
+        Returns
+        -------
+        dict
+            Representation of the JSON returned from the API.
         """
         path = f"indicators/{indicatorId}/entities"
         return self._request(path, kwargs)
 
     def indicator_entity_data(self, indicatorId, entityId, **kwargs):
         """Get indicator data of an entity.
-        /indicators/{indicatorId}/entities/{entityId}
 
-        Args:
-            indicatorId (str, required): The id of indicator
-            entityId (str, required): The id of entity
-            lang (str, optional): "SPANISH" (default), "BASQUE"
+        Parameters
+        ----------
+        indicatorId : str
+            The id number of the indicator
+        entityId : str
+            The id number of the entity
+        **kwargs
+            lang: {"SPANISH", "BASQUE"}
         
-        Returns:
-            A dict representation of the JSON returned from the API.
+        Returns
+        -------
+        dict
+            Representation of the JSON returned from the API.
         """
         path = f"indicators/{indicatorId}/entities/{entityId}"
         return self._request(path, kwargs)
 
     def indicator_regions_data(self, indicatorId, **kwargs):
         """Get indicators' data for all regions.
-        /indicators/{indicatorId}/regions
 
-        Args:
-            indicatorId (str, required): The id of indicator
-            lang (str, optional): "SPANISH" (default), "BASQUE"
+        Parameters
+        ----------
+        indicatorId : str
+            The id number of the indicator
+        **kwargs
+            lang: {"SPANISH", "BASQUE"}
         
-        Returns:
-            A dict representation of the JSON returned from the API.
+        Returns
+        -------
+        dict
+            Representation of the JSON returned from the API.
         """
         path = f"indicators/{indicatorId}/regions"
         return self._request(path, kwargs)
 
     def indicator_region_data(self, indicatorId, regionId, **kwargs):
         """Get indicator data of a region.
-        /indicators/{indicatorId}/regions/{regionId}
 
-        Args:
-            indicatorId (str, required): The id of indicator
-            regionId (str, required): The id of region
-            lang (str, optional): "SPANISH" (default), "BASQUE"
+        Parameters
+        ----------
+        indicatorId : str
+            The id number of the indicator
+        regionId : str
+            The id number of the region
+        **kwargs
+            lang: {"SPANISH", "BASQUE"}
         
-        Returns:
-            A dict representation of the JSON returned from the API.
+        Returns
+        -------
+        dict
+            Representation of the JSON returned from the API.
         """
         path = f"indicators/{indicatorId}/regions/{regionId}"
         return self._request(path, kwargs)
 
     def indicator_municipalities_data(self, indicatorId, **kwargs):
         """Get indicators' data for all municipalities.
-        /indicators/{indicatorId}/municipalities
 
-        Args:
-            indicatorId (str, required): The id of indicator
-            lang (str, optional): "SPANISH" (default), "BASQUE"
+        Parameters
+        ----------
+        indicatorId : str
+            The id number of the indicator
+        **kwargs
+            lang: {"SPANISH", "BASQUE"}
         
-        Returns:
-            A dict representation of the JSON returned from the API.
+        Returns
+        -------
+        dict
+            Representation of the JSON returned from the API.
         """
         path = f"indicators/{indicatorId}/municipalities"
         return self._request(path, kwargs)
 
     def indicator_municipality_data(self, indicatorId, municipalityId, **kwargs):
         """Get indicator data of a municipality.
-        /udalmap/indicators/{indicatorId}/municipalities/{municipalityId}
 
-        Args:
-            indicatorId (str, required): The id of indicator
-            municipalityId (str, required): The id of municipality
-            lang (str, optional): "SPANISH" (default), "BASQUE"
+        Parameters
+        ----------
+        indicatorId : str
+            The id number of the indicator
+        municipalityId : str
+            The id number of the municipality
+        **kwargs
+            lang: {"SPANISH", "BASQUE"}
         
-        Returns:
-            A dict representation of the JSON returned from the API.
+        Returns
+        -------
+        dict
+            Representation of the JSON returned from the API.
         """
         path = f"indicators/{indicatorId}/municipalities/{municipalityId}"
         return self._request(path, kwargs)

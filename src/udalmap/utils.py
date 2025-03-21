@@ -1,7 +1,5 @@
 """
-udalmap.utils
-
-This module implements convenient classes to get info from udalmap API.
+A module for implementing convenient classes to get info from udalmap API.
 """
 
 from .base import UdalMap
@@ -9,7 +7,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 class UdmDf(UdalMap):
-    """Gets Udalmap API info into Pandas dataframes.
+    """Get Udalmap API info into Pandas dataframes.
     
     """
 
@@ -17,11 +15,11 @@ class UdmDf(UdalMap):
         UdalMap.__init__(self, timeout=5)
 
     def find(self):
-        """Provides all indicators in a Pandas dataframe.
-
-        Args:
+        """Provide all groups, subgroups and indicators.
         
-        Returns:
+        Returns
+        -------
+        pd.DataFrame
             A Pandas dataframe.
         """
         groups = self.groups()
@@ -39,13 +37,18 @@ class UdmDf(UdalMap):
                              "indicator": indicator_ls})
 
     def get(self, indicatorId, body):
-        """Provides an indicator data in a Pandas dataframe.
+        """Provide an indicator's data for a body.
 
-        Args:
-            indicatorId (str, required): The id of indicator
-            body (str, required): "entities", "regions", "municipalities"
+        Parameters
+        ----------
+        indicatorId : str
+            The id number of the indicator
+        body : {"entities", "regions", "municipalities"}
+            The body of which to retrieve the indicator data
         
-        Returns:
+        Returns
+        -------
+        pd.DataFrame
             A Pandas dataframe.
         """
         data = self.indicator_data(indicatorId)
@@ -58,15 +61,21 @@ class UdmDf(UdalMap):
         return pd.DataFrame(years, index=names)
 
     def plot(self, indicatorId, body, filters=None):
-        """Plots an indicator data for a body.
+        """Plot an indicator data for a body with filters.
 
-        Args:
-            indicatorId (str, required): The id of indicator
-            body (str, required): "entities", "regions", "municipalities"
-            filters (list[str], optional): filters items to plot
+        Parameters
+        ----------
+        indicatorId : str
+            The id number of the indicator
+        body : {"entities", "regions", "municipalities"}
+            The body of which to retrieve the indicator data
+        filters : list of str, optional
+            Selects the items to plot
         
-        Returns:
-            A Matplotlib plot.
+        Returns
+        -------
+        
+            Plots a Matplotlib plot.
         """
         df = self.get(indicatorId, body)
         if filters is not None:
