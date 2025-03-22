@@ -1,8 +1,0 @@
-setup.py
-udalmap/__init__.py
-udalmap/base.py
-udalmap/utils.py
-udalmap.egg-info/PKG-INFO
-udalmap.egg-info/SOURCES.txt
-udalmap.egg-info/dependency_links.txt
-udalmap.egg-info/top_level.txt
