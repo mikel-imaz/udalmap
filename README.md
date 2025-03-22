@@ -5,9 +5,10 @@ A wrapper for Udalmap API
 A simple Python package for easy access to data provided by this web API.
 
 > The Udalmap API provides access to more than 200 municipal information indicators,
-aimed at showing in detail the reality in the municipalities of the Basque Autonomous Community
-in areas such as economy and competitiveness, social cohesion, quality of life, environment, and mobility.
-Source: https://www.euskadi.eus/informacion-municipal-udalmap/web01-s2oga/es/
+> aimed at showing in detail the reality in the municipalities of the Basque Autonomous Community
+> in areas such as economy and competitiveness, social cohesion, quality of life, environment, and mobility.
+>
+> https://www.euskadi.eus/informacion-municipal-udalmap/web01-s2oga/es/
 
 ## ⚠️ Project Status: In Development
 This project is currently **under active development**.
