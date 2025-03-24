@@ -9,4 +9,6 @@ social cohesion, quality of life, environment, and mobility.
 https://www.euskadi.eus/informacion-municipal-udalmap/web01-s2oga/es/'
 """
 
+__version__ = "0.1.0"
+
 from .base import UdalMap
