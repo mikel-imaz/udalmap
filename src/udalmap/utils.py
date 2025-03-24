@@ -6,9 +6,10 @@ from .base import UdalMap
 import pandas as pd
 import matplotlib.pyplot as plt
 
+
 class UdmDf(UdalMap):
     """Get Udalmap API info into Pandas dataframes.
-    
+
     """
 
     def __init__(self):
@@ -16,19 +17,19 @@ class UdmDf(UdalMap):
 
     def find(self):
         """Provide all groups, subgroups and indicators.
-        
+
         Returns
         -------
         pd.DataFrame
             A Pandas dataframe.
         """
         groups = self.groups()
-        
+
         group_ls, subgroup_ls, indicator_ls = [], [], []
         for group in groups:
             for subgroup in group["subgroups"]:
                 for indicator in subgroup["indicators"]:
-                    indicator_ls.append(f"{indicator["id"]}: {indicator["name"]}")
+                    indicator_ls.append(f"{indicator["id"]}: {indicator["name"]}")  # noqa: E501
                     subgroup_ls.append(f"{subgroup["id"]}: {subgroup["name"]}")
                     group_ls.append(f"{group["id"]}: {group["name"]}")
 
@@ -45,7 +46,7 @@ class UdmDf(UdalMap):
             The id number of the indicator
         body : {"entities", "regions", "municipalities"}
             The body of which to retrieve the indicator data
-        
+
         Returns
         -------
         pd.DataFrame
@@ -57,7 +58,7 @@ class UdmDf(UdalMap):
         for item in data[body]:
             names.append(item["name"])
             years.append(item["years"][0])
-        
+
         return pd.DataFrame(years, index=names)
 
     def plot(self, indicatorId, body, filters=None):
@@ -71,10 +72,10 @@ class UdmDf(UdalMap):
             The body of which to retrieve the indicator data
         filters : list of str, optional
             Selects the items to plot
-        
+
         Returns
         -------
-        
+
             Plots a Matplotlib plot.
         """
         df = self.get(indicatorId, body)
@@ -82,7 +83,7 @@ class UdmDf(UdalMap):
             df = df.loc[filters, :]
 
         lookup_name = {item["id"]: item["name"] for item in self.indicators()}
-        
+
         fig, ax = plt.subplots()
         df.transpose().plot(ax=ax)
         ax.set_title(f"{indicatorId}: {lookup_name[indicatorId]}")

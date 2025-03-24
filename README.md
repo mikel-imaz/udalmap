@@ -4,7 +4,7 @@ A wrapper for Udalmap API
 ## Description
 A simple Python package for easy access to data provided by this web API.
 
-> The Udalmap API provides access to more than 200 municipal information indicators,
+> The Udalmap API provides access to +200 municipal information indicators,
 > aimed at showing in detail the reality in the municipalities of the Basque Autonomous Community
 > in areas such as economy and competitiveness, social cohesion, quality of life, environment, and mobility.
 >
@@ -154,7 +154,7 @@ You can also conveniently plot the data:
 ```python
 >>> udm.plot("17", "entities")
 ```
-![](figures/figure_1.png)
+![](docs/assets/README_figures/figure_1.png)
 
 If `regions` and `municipalities` are to be plotted, then the graph gets overwhelmed because of the number of traces. That is why the plot method comes with an optional parameter for filtering.
 
@@ -182,7 +182,7 @@ And then plot the ones you are interested in:
 ...                                    "Bilbo Handia / Gran Bilbao",
 ...                                   ])
 ```
-![](figures/figure_2.png)
+![](docs/assets/README_figures/figure_2.png)
 
 Same thing with `municipalities`:
 ```python
@@ -250,6 +250,6 @@ array(['Abadiño', 'Alonsotegi', 'Amoroto', 'Antzuola', 'Arakaldo',
 ...                                           "Bilbao",
 ...                                   ])
 ```
-![](figures/figure_2.png)
+![](docs/assets/README_figures/figure_3.png)
 
 Besides giving an instant view, these out-of-the-box plots can provide insights into null values, erroneous data, and other issues, helping to guide data preprocessing before conducting a full-fledged analysis.

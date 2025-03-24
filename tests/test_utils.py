@@ -1,7 +1,5 @@
 import unittest
-import sys
 import pandas as pd
-sys.path.append("../src")
 from udalmap.utils import UdmDf
 
 class TestUdalmapUtils(unittest.TestCase):

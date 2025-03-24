@@ -5,13 +5,14 @@ A module for implementing a base class for Udalmap.
 import requests
 from requests.exceptions import ConnectionError, HTTPError
 
+
 class UdalMap:
     """Implement all available GET queries in Udalmap API.
 
     Attributes
     ----------
     timeout : float, optional
-        Timeout for requests, in seconds  
+        Timeout for requests, in seconds
     """
     BASE_URI = "https://api.euskadi.eus/udalmap"
     HEADERS = {"accept": "application/json"}
@@ -29,14 +30,14 @@ class UdalMap:
                                     params=params,
                                     headers=UdalMap.HEADERS,
                                     timeout=self.timeout
-                                   )
+                                    )
             response.raise_for_status()
             response.encoding = "utf-8"
             return response.json()
-            
+
         except ConnectionError as conn_err:
             print(f"Connection Error! {conn_err}.")
-            
+
         except HTTPError as http_err:
             print(f"HTTP error occurred: {http_err}")
 
@@ -48,13 +49,13 @@ class UdalMap:
         **kwargs
             lang: {"SPANISH", "BASQUE"}
             summarized: {"false", "true"}
-        
+
         Returns
         -------
         list of dict
             Representation of the JSON returned from the API.
         """
-        path = f"groups"
+        path = "groups"
         return self._request(path, kwargs)
 
     def group(self, groupId, **kwargs):
@@ -67,7 +68,7 @@ class UdalMap:
         **kwargs
             lang: {"SPANISH", "BASQUE"}
             summarized: {"false", "true"}
-        
+
         Returns
         -------
         dict
@@ -84,13 +85,13 @@ class UdalMap:
         **kwargs
             lang: {"SPANISH", "BASQUE"}
             summarized: {"false", "true"}
-        
+
         Returns
         -------
         list of dict
             Representation of the JSON returned from the API.
         """
-        path = f"subgroups"
+        path = "subgroups"
         return self._request(path, kwargs)
 
     def subgroup(self, subgroupId, **kwargs):
@@ -103,7 +104,7 @@ class UdalMap:
         **kwargs
             lang: {"SPANISH", "BASQUE"}
             summarized: {"false", "true"}
-        
+
         Returns
         -------
         dict
@@ -122,7 +123,7 @@ class UdalMap:
         **kwargs
             lang: {"SPANISH", "BASQUE"}
             summarized: {"false", "true"}
-        
+
         Returns
         -------
         dict
@@ -138,13 +139,13 @@ class UdalMap:
         ----------
         **kwargs
             lang: {"SPANISH", "BASQUE"}
-        
+
         Returns
         -------
         list of dict
             Representation of the JSON returned from the API.
         """
-        path = f"indicators"
+        path = "indicators"
         return self._request(path, kwargs)
 
     def subgroup_indicators(self, subgroupId, **kwargs):
@@ -157,7 +158,7 @@ class UdalMap:
         **kwargs
             lang: {"SPANISH", "BASQUE"}
             summarized: {"false", "true"}
-        
+
         Returns
         -------
         list of dict
@@ -175,7 +176,7 @@ class UdalMap:
             The id number of the municipality
         **kwargs
             lang: {"SPANISH", "BASQUE"}
-        
+
         Returns
         -------
         dict
@@ -193,7 +194,7 @@ class UdalMap:
             The id number of the indicator
         **kwargs
             lang: {"SPANISH", "BASQUE"}
-        
+
         Returns
         -------
         dict
@@ -211,7 +212,7 @@ class UdalMap:
             The id number of the indicator
         **kwargs
             lang: {"SPANISH", "BASQUE"}
-        
+
         Returns
         -------
         dict
@@ -231,7 +232,7 @@ class UdalMap:
             The id number of the entity
         **kwargs
             lang: {"SPANISH", "BASQUE"}
-        
+
         Returns
         -------
         dict
@@ -249,7 +250,7 @@ class UdalMap:
             The id number of the indicator
         **kwargs
             lang: {"SPANISH", "BASQUE"}
-        
+
         Returns
         -------
         dict
@@ -269,7 +270,7 @@ class UdalMap:
             The id number of the region
         **kwargs
             lang: {"SPANISH", "BASQUE"}
-        
+
         Returns
         -------
         dict
@@ -287,7 +288,7 @@ class UdalMap:
             The id number of the indicator
         **kwargs
             lang: {"SPANISH", "BASQUE"}
-        
+
         Returns
         -------
         dict
@@ -296,7 +297,7 @@ class UdalMap:
         path = f"indicators/{indicatorId}/municipalities"
         return self._request(path, kwargs)
 
-    def indicator_municipality_data(self, indicatorId, municipalityId, **kwargs):
+    def indicator_municipality_data(self, indicatorId, municipalityId, **kwargs):  # noqa: E501
         """Get indicator data of a municipality.
 
         Parameters
@@ -307,7 +308,7 @@ class UdalMap:
             The id number of the municipality
         **kwargs
             lang: {"SPANISH", "BASQUE"}
-        
+
         Returns
         -------
         dict
