@@ -52,6 +52,7 @@ To explore available indicators, call this method:
 
 [222 rows x 3 columns]
 ```
+
 This Pandas dataframe can be manipulated as desired. For example, you can count available indicators showing the whole group, subgroup structure:
 ```python
 >>> df.groupby(["group", "subgroup"])["indicator"].count()
