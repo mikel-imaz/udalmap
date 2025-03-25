@@ -10,11 +10,16 @@ import matplotlib.pyplot as plt
 class UdmDf(UdalMap):
     """Get Udalmap API info into Pandas dataframes.
 
+    Attributes
+    ----------
+    timeout : float, optional
+        Timeout for requests, in seconds
+
     """
     BODIES = {"entities", "regions", "municipalities"}
 
-    def __init__(self):
-        UdalMap.__init__(self, timeout=5)
+    def __init__(self, timeout=None):
+        UdalMap.__init__(self, timeout=timeout)
         self.indicatorids = self._indicatorids()
 
     def _indicatorids(self):
@@ -22,11 +27,14 @@ class UdmDf(UdalMap):
 
     def _raise_input_errors(self, indicatorId, body):
         if not isinstance(indicatorId, str):
-            raise TypeError(f"str expected for indicatorId, got '{type(indicatorId).__name__}'")
+            raise TypeError(
+                f"str expected for indicatorId, got '{type(indicatorId).__name__}'")
         if indicatorId not in self.indicatorids:
-            raise ValueError(f"indicator id should be one of these: {self.indicatorids}")
+            raise ValueError(
+                f"indicator id should be one of these: {self.indicatorids}")
         if body not in UdmDf.BODIES:
-            raise ValueError(f"body should be one of these: {UdmDf.BODIES}, got '{body}'")
+            raise ValueError(
+                f"body should be one of these: {UdmDf.BODIES}, got '{body}'")
 
     def find(self):
         """Provide all groups, subgroups and indicators.
@@ -42,7 +50,8 @@ class UdmDf(UdalMap):
         for group in groups:
             for subgroup in group["subgroups"]:
                 for indicator in subgroup["indicators"]:
-                    indicator_ls.append(f"{indicator["id"]}: {indicator["name"]}")  # noqa: E501
+                    indicator_ls.append(
+                        f"{indicator["id"]}: {indicator["name"]}")
                     subgroup_ls.append(f"{subgroup["id"]}: {subgroup["name"]}")
                     group_ls.append(f"{group["id"]}: {group["name"]}")
 
@@ -66,7 +75,7 @@ class UdmDf(UdalMap):
             A Pandas dataframe.
         """
         self._raise_input_errors(indicatorId, body)
-        
+
         data = self.indicator_data(indicatorId)
 
         names, years = [], []
@@ -98,10 +107,12 @@ class UdmDf(UdalMap):
         df = self.get(indicatorId, body)
         if filters is not None:
             if not isinstance(filters, list):
-                raise TypeError(f"list type expected for filters, got '{type(filters).__name__}'")
+                raise TypeError(
+                    f"list type expected for filters, got '{type(filters).__name__}'")
             for item in filters:
                 if item not in df.index:
-                    raise ValueError(f"filter item '{item}' is not in {list(df.index)}")
+                    raise ValueError(
+                        f"filter item '{item}' is not in {list(df.index)}")
             df = df.loc[filters, :]
 
         lookup_name = {item["id"]: item["name"] for item in self.indicators()}

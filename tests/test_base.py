@@ -1,19 +1,25 @@
 import unittest
-import sys
 import udalmap
+
 
 class TestUdalmapBase(unittest.TestCase):
 
     def setUp(self):
         """Fixture"""
         self.udm = udalmap.UdalMap()
+        self.udm_timeout = udalmap.UdalMap(timeout=0.001)
         self.groupid = "E"
         self.subgroupid = "E.1"
         self.indicatorid = "7"
         self.entityid = "01000"
         self.regionid = "20400"
         self.municipalityid = "20005"
-    
+
+    def test_raises_timeout(self):
+        """Test timeout raises exception"""
+        with self.assertRaises(Exception):
+            self.udm_timeout.groups()
+
     def test_response_groups(self):
         """Test response to groups()"""
         response = self.udm.groups()
@@ -70,7 +76,8 @@ class TestUdalmapBase(unittest.TestCase):
 
     def test_response_indicator_entity_data(self):
         """Test response to indicator_entity_data(indicatorId, entityId)"""
-        response = self.udm.indicator_entity_data(self.indicatorid, self.entityid)
+        response = self.udm.indicator_entity_data(
+            self.indicatorid, self.entityid)
         self.assertIsInstance(response, dict)
         self.assertTrue(len(response) > 0)
 
@@ -82,7 +89,8 @@ class TestUdalmapBase(unittest.TestCase):
 
     def test_response_indicator_region_data(self):
         """Test response to indicator_region_data(indicatorId, regionId)"""
-        response = self.udm.indicator_region_data(self.indicatorid, self.regionid)
+        response = self.udm.indicator_region_data(
+            self.indicatorid, self.regionid)
         self.assertIsInstance(response, dict)
         self.assertTrue(len(response) > 0)
 
@@ -94,20 +102,21 @@ class TestUdalmapBase(unittest.TestCase):
 
     def test_response_indicator_municipality_data(self):
         """Test response to indicator_municipality_data(indicatorId, municipalityId)"""
-        response = self.udm.indicator_municipality_data(self.indicatorid, self.municipalityid)
+        response = self.udm.indicator_municipality_data(
+            self.indicatorid, self.municipalityid)
         self.assertIsInstance(response, dict)
         self.assertTrue(len(response) > 0)
 
     def tearDown(self):
         """Clean the environment"""
         del self.udm
+        del self.udm_timeout
         del self.groupid
         del self.subgroupid
         del self.indicatorid
         del self.entityid
         del self.regionid
         del self.municipalityid
-    
 
 
 # Make this module executable in unittest

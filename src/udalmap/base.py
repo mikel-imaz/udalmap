@@ -3,7 +3,6 @@ A module for implementing a base class for Udalmap.
 """
 
 import requests
-from requests.exceptions import ConnectionError, HTTPError
 
 
 class UdalMap:
@@ -16,30 +15,25 @@ class UdalMap:
     """
     BASE_URI = "https://api.euskadi.eus/udalmap"
     HEADERS = {"accept": "application/json"}
+    TIMEOUT = 5
 
-    def __init__(self, timeout=5):
-        self.timeout = timeout
+    def __init__(self, timeout=None):
+        self.timeout = timeout if timeout is not None else UdalMap.TIMEOUT
 
     def _get_complete_url(self, path):
         return f"{UdalMap.BASE_URI}/{path}"
 
     def _request(self, path, params=None):
         url = self._get_complete_url(path)
-        try:
-            response = requests.get(url,
-                                    params=params,
-                                    headers=UdalMap.HEADERS,
-                                    timeout=self.timeout
-                                    )
-            response.raise_for_status()
-            response.encoding = "utf-8"
-            return response.json()
 
-        except ConnectionError as conn_err:
-            print(f"Connection Error! {conn_err}.")
-
-        except HTTPError as http_err:
-            print(f"HTTP error occurred: {http_err}")
+        response = requests.get(url,
+                                params=params,
+                                headers=UdalMap.HEADERS,
+                                timeout=self.timeout
+                                )
+        response.raise_for_status()
+        response.encoding = "utf-8"
+        return response.json()
 
     def groups(self, **kwargs):
         """Find all groups.
@@ -297,7 +291,7 @@ class UdalMap:
         path = f"indicators/{indicatorId}/municipalities"
         return self._request(path, kwargs)
 
-    def indicator_municipality_data(self, indicatorId, municipalityId, **kwargs):  # noqa: E501
+    def indicator_municipality_data(self, indicatorId, municipalityId, **kwargs):
         """Get indicator data of a municipality.
 
         Parameters
