@@ -4,13 +4,9 @@
 ![PyPI - Status](https://img.shields.io/pypi/status/udalmap)
 
 ## A wrapper for Udalmap API
-_udalmap_ is a simple Python package for easy access to data provided by this web API.
+_udalmap_ is a simple Python package for easy access to data provided by [this](https://opendata.euskadi.eus/api-udalmap/?api=udalmap) web API.
 
-> The Udalmap API provides access to +200 municipal information indicators,
-> aimed at showing in detail the reality in the municipalities of the Basque Autonomous Community
-> in areas such as economy and competitiveness, social cohesion, quality of life, environment, and mobility.
->
-> https://www.euskadi.eus/informacion-municipal-udalmap/web01-s2oga/es/
+> [Udalmap](https://www.euskadi.eus/informacion-municipal-udalmap/web01-s2oga/es/) provides access to +200 municipal information indicators, aimed at showing in detail the reality in the municipalities of the Basque Autonomous Community in areas such as economy and competitiveness, social cohesion, quality of life, environment, and mobility.
 
 ## Features
 - One-to-one mapping between _udalmap_ methods and Udalmap API endpoints.

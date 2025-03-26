@@ -5,3 +5,5 @@ docs/_build/
 .venv/
 HISTORY.md
 requirements.txt
+build/
+dist/
