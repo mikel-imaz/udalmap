@@ -28,6 +28,8 @@ pip install udalmap
 - Download the [source from Github](http://github.com/mikel-imaz/udalmap) and
   install it yourself
 
+If you install it yourself, also install `requests`, `pandas` and `matplotlib`.
+
 ## Usage
 ### With base methods
 Once you have installed the package, you can import it and instantiate `UdalMap`, the base class:
