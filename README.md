@@ -1,8 +1,10 @@
 # udalmap
-A wrapper for Udalmap API
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/udalmap)
+![PyPI - Version](https://img.shields.io/pypi/v/udalmap)
+![PyPI - Status](https://img.shields.io/pypi/status/udalmap)
 
-## Description
-A simple Python package for easy access to data provided by this web API.
+## A wrapper for Udalmap API
+_udalmap_ is a simple Python package for easy access to data provided by this web API.
 
 > The Udalmap API provides access to +200 municipal information indicators,
 > aimed at showing in detail the reality in the municipalities of the Basque Autonomous Community
@@ -10,31 +12,54 @@ A simple Python package for easy access to data provided by this web API.
 >
 > https://www.euskadi.eus/informacion-municipal-udalmap/web01-s2oga/es/
 
-## ⚠️ Project Status: In Development
-This project is currently **under active development**.
+## Features
+- One-to-one mapping between _udalmap_ methods and Udalmap API endpoints.
+- Leverages Pandas DataFrames and Matplotlib plots to provide easy access to the data.
 
 ## Installation
-_udalmap_ will be available on the Python Package Index (PyPI) once it's ready.  
-In the meantime, you can download the source code from this repo and install it yourself.
+_udalmap_ is available on the Python Package Index (PyPI) at
+https://pypi.python.org/pypi/udalmap.
+
+You can install _udalmap_ using one of the following techniques.
+
+- Use pip:
+
+```
+pip install udalmap
+```
+
+- Download the .zip or .tar.gz file from PyPI and install it yourself
+- Download the [source from Github](http://github.com/mikel-imaz/udalmap) and
+  install it yourself
 
 ## Usage
-Once you have installed the package, you can import it and instantiate the base class this way:
+### With base methods
+Once you have installed the package, you can import it and instantiate `UdalMap`, the base class:
+
 ```python
 >>> import udalmap
 >>> udm = udalmap.UdalMap()
 ```
-The object implements one-to-one mapping to the API endpoints. For example, you could call the following method...
+
+The resulting object implements a one-to-one mapping to the API endpoints. For example, you could call the following method:
+
 ```python
 >>> udm.groups()
 ```
-...and you would get a list of dictionaries of the JSON response from the API. Please, refer to the [documentation](https://mikel-imaz.github.io/udalmap/) of this package or the information provided by the [API](https://opendata.euskadi.eus/api-udalmap/?api=udalmap) for a complete list of services.
 
-The package offers though a more convenient way to work leveraging Pandas. To do so, you can proceed this way:
+Which implements a query with the URL https://api.euskadi.eus/udalmap/groups, and you would get a list of dictionaries of the JSON response from the API. Please, refer to the [documentation](https://mikel-imaz.github.io/udalmap/) of this package or the information provided by the [API](https://opendata.euskadi.eus/api-udalmap/?api=udalmap) for a complete list of services.
+
+### Getting it in Pandas
+
+_udalmap_ offers a more convenient way to work leveraging Pandas and Matplotlib. To do so, you can proceed this way:
+
 ```python
 >>> from udalmap.utils import UdmDf
 >>> udm = UdmDf()
 ```
-To explore available indicators, call this method:
+
+To explore available indicators, call `find()` method on the object to get a DataFrame:
+
 ```python
 >>> df = udm.find()
 >>> df
@@ -53,7 +78,8 @@ To explore available indicators, call this method:
 [222 rows x 3 columns]
 ```
 
-This Pandas dataframe can be manipulated as desired. For example, you can count available indicators showing the whole group, subgroup structure:
+This Pandas DataFrame can be manipulated as desired. For example, you can count available indicators showing the whole group/subgroup structure:
+
 ```python
 >>> df.groupby(["group", "subgroup"])["indicator"].count()
 group                                 subgroup
@@ -82,7 +108,9 @@ S: Cohesión social / Calidad de vida  S.1: Demografía                         
                                       S.9: Participación ciudadana                              3
 Name: indicator, dtype: int64
 ```
+
 Or you can list indicators' ID together with their descriptions for a certain group or subgroup:
+
 ```python
 >>> df.loc[df["subgroup"] == "E.3: Tejido empresarial", "indicator"].values
 array(['17: Empleo generado por las microempresas (0-9 empleados) (%)',
@@ -93,7 +121,9 @@ array(['17: Empleo generado por las microempresas (0-9 empleados) (%)',
        '19: Porcentaje de establecimientos del sector industrial sobre el total (%)'],
       dtype=object)
 ```
-Once identified, you can get the data for the indicator of your interest, for exampe for `entities`:
+
+Once you have identified the indicator of your interest, you can get the data, for exampe for `entities`:
+
 ```python
 >>> udm.get("17", "entities")
               2003   2004   2005   2006   2007   2008   2009   2010   2011   2012  ...   2014   2015   2016   2017   2018   2019   2020   2021   2022   2023 
@@ -104,7 +134,9 @@ CAE          36.83  37.05  36.62  36.46  37.20  37.32  37.19  37.17  36.68  37.0
 
 [4 rows x 21 columns]
 ```
+
 Or for `regions`:
+
 ```python
 >>> udm.get("17", "regions")
                                               2003   2004   2005   2006   2007   2008   2009   2010  ...   2016   2017   2018   2019   2020   2021   2022    
@@ -133,7 +165,9 @@ Markina-Ondarroa                             39.28  38.86  40.19  40.25  41.94  
 
 [20 rows x 21 columns]
 ```
+
 Or for `municipalities`:
+
 ```python
 >>> udm.get("17", "municipalities")
                     2003    2004    2005    2006    2007    2008    2009    2010  ...    2016    2017    2018    2019    2020    2021    2022    2023        
@@ -151,15 +185,19 @@ Yécora/Iekora     100.00  100.00   56.82   56.82   60.78   62.26   64.44   67.3
 
 [251 rows x 21 columns]
 ```
-You can also conveniently plot the data:
+
+You can also directly plot the data:
+
 ```python
 >>> udm.plot("17", "entities")
 ```
+
 ![](docs/assets/README_figures/figure_1.png)
 
 If `regions` and `municipalities` are to be plotted, then the graph gets overwhelmed because of the number of traces. That is why the plot method comes with an optional parameter for filtering.
 
 For `regions` you can check out available elements this way:
+
 ```python
 >>> udm.get("17", "regions").index.values
 array(['Durangaldea / Duranguesado', 'Enkartazioak / Encartaciones',
@@ -175,7 +213,9 @@ array(['Durangaldea / Duranguesado', 'Enkartazioak / Encartaciones',
        'Goierri', 'Arabako Lautada / Llanada Alavesa',
        'Debagoiena / Alto Deba', 'Markina-Ondarroa'], dtype=object)
 ```
+
 And then plot the ones you are interested in:
+
 ```python
 >>> udm.plot("17", "regions", filters=["Goierri",
 ...                                    "Gernika-Bermeo",
@@ -186,6 +226,7 @@ And then plot the ones you are interested in:
 ![](docs/assets/README_figures/figure_2.png)
 
 Same thing with `municipalities`:
+
 ```python
 >>> udm.get("17", "municipalities").index.values
 array(['Abadiño', 'Alonsotegi', 'Amoroto', 'Antzuola', 'Arakaldo',
@@ -244,6 +285,7 @@ array(['Abadiño', 'Alonsotegi', 'Amoroto', 'Antzuola', 'Arakaldo',
        'Orendain', 'Orio', 'Plentzia', 'Trucios-Turtzioz', 'Ubide',
        'Urretxu', 'Yécora/Iekora'], dtype=object)
 ```
+
 ```python
 >>> udm.plot("17", "municipalities", filters=["Urretxu",
 ...                                           "Zumarraga",
