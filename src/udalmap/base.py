@@ -15,10 +15,9 @@ class UdalMap:
     """
     BASE_URI = "https://api.euskadi.eus/udalmap"
     HEADERS = {"accept": "application/json"}
-    TIMEOUT = 5
 
     def __init__(self, timeout=None):
-        self.timeout = timeout if timeout is not None else UdalMap.TIMEOUT
+        self.timeout = timeout
 
     def _get_complete_url(self, path):
         return f"{UdalMap.BASE_URI}/{path}"
