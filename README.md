@@ -1,4 +1,5 @@
 # udalmap
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/mikel-imaz/udalmap/python-package.yml)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/udalmap)
 ![PyPI - Version](https://img.shields.io/pypi/v/udalmap)
 ![PyPI - Status](https://img.shields.io/pypi/status/udalmap)
