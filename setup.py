@@ -11,6 +11,7 @@ setup(
     version="0.1.1",
     url="https://github.com/mikel-imaz/udalmap",
     keywords=["udalmap", "api", "euskadi", "basque", "opendata"],
+    license="MIT",
     packages=find_packages(where="src"),
     package_dir={"": "src"},
     install_requires=["requests", "pandas", "matplotlib"],
