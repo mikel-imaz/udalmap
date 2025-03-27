@@ -8,7 +8,7 @@ setup(
     author="Mikel Imaz",
     description="A wrapper for Udalmap API",
     name="udalmap",
-    version="0.1.1",
+    version="0.1.2",
     url="https://github.com/mikel-imaz/udalmap",
     keywords=["udalmap", "api", "euskadi", "basque", "opendata"],
     license="MIT",
