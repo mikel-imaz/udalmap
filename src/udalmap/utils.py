@@ -51,7 +51,7 @@ class UdmDf(UdalMap):
             for subgroup in group["subgroups"]:
                 for indicator in subgroup["indicators"]:
                     indicator_ls.append(
-                        f"{indicator["id"]}: {indicator["name"]}")
+                        f"{indicator['id']}: {indicator['name']}")
                     subgroup_ls.append(f"{subgroup["id"]}: {subgroup["name"]}")
                     group_ls.append(f"{group["id"]}: {group["name"]}")
 
