@@ -5,7 +5,6 @@ sys.path.insert(0, os.path.abspath('../src'))
 # -- Project information -----------------------------------------------------
 project = 'udalmap'
 copyright = '2025'
-# author = 'Mikel Imaz'
 
 # -- General configuration ---------------------------------------------------
 extensions = ['sphinx.ext.autodoc',
