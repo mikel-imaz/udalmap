@@ -51,7 +51,12 @@ Which implements a query with the URL https://api.euskadi.eus/udalmap/groups, an
 
 ### Getting it in Pandas
 
-_udalmap_ offers a more convenient way to work leveraging Pandas and Matplotlib. To do so, you can proceed this way:
+_udalmap_ offers a more convenient way to work leveraging Pandas and Matplotlib. In a module called `utils` I have created a class with three methods to make the work easier.
+- find <- to explore indicators
+- get <- to get the data
+- plot <- to plot it
+
+You can proceed this way:
 
 ```python
 >>> from udalmap.utils import UdmDf
