@@ -3,9 +3,8 @@ test: ## run tests
 	python tests/test_utils.py
 
 clean-build: ## remove build artifacts
-	rm -fr build/
-	rm -fr dist/
-	rm -fr .eggs/
+	rmdir /s /q build
+	rmdir /s /q dist
 
 dist: ## builds source and wheel package
 	python setup.py sdist bdist_wheel
