@@ -1,5 +1,6 @@
 # udalmap
 [![Python package](https://github.com/mikel-imaz/udalmap/actions/workflows/python-package.yml/badge.svg)](https://github.com/mikel-imaz/udalmap/actions/workflows/python-package.yml)
+[![codecov](https://codecov.io/gh/mikel-imaz/udalmap/graph/badge.svg?token=JJS4AV7W1C)](https://codecov.io/gh/mikel-imaz/udalmap)
 ![Static Badge](https://img.shields.io/badge/Python-3.6--3.12-%233776AB?logo=python&logoColor=white)
 ![PyPI - Version](https://img.shields.io/pypi/v/udalmap)
 ![PyPI - Status](https://img.shields.io/pypi/status/udalmap)
