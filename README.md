@@ -4,6 +4,7 @@
 ![Static Badge](https://img.shields.io/badge/Python-3.6--3.12-%233776AB?logo=python&logoColor=white)
 ![PyPI - Version](https://img.shields.io/pypi/v/udalmap)
 ![PyPI - Status](https://img.shields.io/pypi/status/udalmap)
+[![listed on awesome-euskadi](https://img.shields.io/badge/listed%20on-awesome--euskadi-FFD700?style=flat&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNCAxNCI+PGcgZmlsbD0iI0ZGRDcwMCI+PHJlY3QgeD0iNiIgeT0iMCIgd2lkdGg9IjIiIGhlaWdodD0iNiIvPjxyZWN0IHg9IjgiIHk9IjAiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiLz48cmVjdCB4PSI4IiB5PSI2IiB3aWR0aD0iNiIgaGVpZ2h0PSIyIi8+PHJlY3QgeD0iMTIiIHk9IjQiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiLz48cmVjdCB4PSI2IiB5PSI4IiB3aWR0aD0iMiIgaGVpZ2h0PSI2Ii8+PHJlY3QgeD0iNCIgeT0iMTIiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiLz48cmVjdCB4PSIwIiB5PSI2IiB3aWR0aD0iNiIgaGVpZ2h0PSIyIi8+PHJlY3QgeD0iMCIgeT0iOCIgd2lkdGg9IjIiIGhlaWdodD0iMiIvPjwvZz48L3N2Zz4=&labelColor=009B3A)](https://github.com/GeiserX/awesome-euskadi#readme)
 
 ## A wrapper for Udalmap API
 _udalmap_ is a simple Python package for easy access to data provided by [this](https://opendata.euskadi.eus/api-udalmap/?api=udalmap) web API.
